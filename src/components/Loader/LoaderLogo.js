@@ -30,16 +30,17 @@ class LogoLoader extends React.Component {
           strokeWidth="4"
         />
 
-        {/* 修改后的 QL 文本 */}
+        {/* 调整后的 QL 文本：缩小了字号并优化了间距 */}
         <text
           x="50%"
           y="50%"
           textAnchor="middle"
           dominantBaseline="central"
-          fontSize="80"
+          fontSize="65"
           fontWeight="bold"
           fontFamily="Arial, sans-serif"
           fill={theme.text}
+          style={{ letterSpacing: "2px" }}
           className="logo-text"
         >
           QL
