@@ -19,6 +19,7 @@ class Header extends Component {
   render() {
     const theme = this.props.theme;
     const link = settings.isSplash ? "/splash" : "home";
+
     return (
       <Fade top duration={1000} distance="20px">
         <SeoHeader />
@@ -31,10 +32,12 @@ class Header extends Component {
               </span>
               <span style={{ color: theme.text }}>/&gt;</span>
             </NavLink>
+
             <input className="menu-btn" type="checkbox" id="menu-btn" />
             <label className="menu-icon" htmlFor="menu-btn">
               <span className="navicon"></span>
             </label>
+
             <ul className="menu" style={{ backgroundColor: theme.body }}>
               <li>
                 <NavLink
@@ -42,68 +45,74 @@ class Header extends Component {
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
                   Home
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/education"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
                   Education
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/experience"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
                   Experience
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/projects"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
                   Projects
                 </NavLink>
               </li>
+
+              {/* ✅ Open Source 改成 About Me */}
               <li>
                 <NavLink
-                  to="/opensource"
+                  to="/aboutme"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
-                  Open Source
+                  About Me
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/contact"
                   tag={Link}
                   activeStyle={{ fontWeight: "bold" }}
                   style={{ color: theme.text }}
-                  onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
-                  onMouseOut={(event) => onMouseOut(event)}
+                  onMouseEnter={(e) => onMouseEnter(e, theme.highlight)}
+                  onMouseOut={onMouseOut}
                 >
                   Contact Me
                 </NavLink>
@@ -115,4 +124,5 @@ class Header extends Component {
     );
   }
 }
+
 export default Header;

@@ -4,9 +4,9 @@ import Home from "../pages/home/HomeComponent";
 import Splash from "../pages/splash/Splash";
 import Education from "../pages/education/EducationComponent";
 import Experience from "../pages/experience/Experience";
-import Opensource from "../pages/opensource/Opensource";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
+import AboutMe from "../pages/aboutme/AboutMe"; // ✅ 新增
 import { settings } from "../portfolio.js";
 import Error404 from "../pages/errors/error404/Error";
 
@@ -26,10 +26,12 @@ export default class Main extends Component {
               )
             }
           />
+
           <Route
             path="/home"
             render={(props) => <Home {...props} theme={this.props.theme} />}
           />
+
           <Route
             path="/experience"
             exact
@@ -37,18 +39,31 @@ export default class Main extends Component {
               <Experience {...props} theme={this.props.theme} />
             )}
           />
+
           <Route
             path="/education"
             render={(props) => (
               <Education {...props} theme={this.props.theme} />
             )}
           />
+
+          <Route
+            path="/projects"
+            render={(props) => <Projects {...props} theme={this.props.theme} />}
+          />
+
+          {/* ✅ About Me 页面 */}
+          <Route
+            path="/aboutme"
+            render={(props) => <AboutMe {...props} theme={this.props.theme} />}
+          />
+
+          {/* ✅ 兼容旧的 /opensource：直接显示 AboutMe，避免白屏 */}
           <Route
             path="/opensource"
-            render={(props) => (
-              <Opensource {...props} theme={this.props.theme} />
-            )}
+            render={(props) => <AboutMe {...props} theme={this.props.theme} />}
           />
+
           <Route
             path="/contact"
             render={(props) => <Contact {...props} theme={this.props.theme} />}
@@ -61,10 +76,6 @@ export default class Main extends Component {
             />
           )}
 
-          <Route
-            path="/projects"
-            render={(props) => <Projects {...props} theme={this.props.theme} />}
-          />
           <Route
             path="*"
             render={(props) => <Error404 {...props} theme={this.props.theme} />}
